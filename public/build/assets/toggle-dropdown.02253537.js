@@ -1,0 +1,1 @@
+var n=document.getElementById("userMenu"),s=document.getElementById("userButton");document.onclick=r;function r(e){var i=e&&e.target||event&&event.srcElement;t(i,n)||(t(i,s)&&n.classList.contains("invisible")?n.classList.remove("invisible"):n.classList.add("invisible"))}function t(e,i){for(;e.parentNode;){if(e==i)return!0;e=e.parentNode}return!1}

@@ -61,6 +61,12 @@
                        class="px-10 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded text-center"
                     >{{ __('ugg.Upload_Documents') }}</a>
                 @endif
+
+                @if(!in_array(Auth::user()->status, ['selected_second_phase']))
+                    <a href="{{ route('ugg.stripe', [app()->getLocale(), 'upload-pdf']) }}"
+                       class="px-10 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded text-center"
+                    >Passer au paiement</a>
+                @endif
             </div>
         </div>
         <hr class="mb-4 md:hidden">

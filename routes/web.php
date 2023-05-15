@@ -26,6 +26,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\UggController;
 use App\Http\Controllers\UggFormController;
 use App\Http\Controllers\WorkController;
+use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -152,6 +153,10 @@ Route::group([
 //    Route::get('test-date', function () {
 //        dd(date('d.m.Y') >= config('app.kodream_start_date'), date('d.m.Y'), config('app.kodream_start_date'));
 //    });
+    Route::controller(StripePaymentController::class)->middleware(['auth'])->group(function(){
+        Route::get('stripe', 'stripe')->name('ugg.stripe');
+        Route::post('stripe', 'stripePost')->name('stripe.post');
+    });
 
     Route::group(['prefix' => 'admin'], function () {
 

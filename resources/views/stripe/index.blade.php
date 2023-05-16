@@ -52,11 +52,11 @@
 
                             <div class=''>
                                 <div class='col-xs-12 form-group required'>
-                                    <p><span>{{ __('payment-message.examination_fees') }}</span>{{env('SUBSCRIPTION_AMOUNT')}} €</p>
+                                    <p><span>{{ __('payment-message.examination_fees') }}</span>{{config("stripe.subscription_amount")}} €</p>
                                 </div>
 
                                 <div class='col-xs-12 form-group required'>
-                                    <p><span>{{ __('payment-message.payment_fees') }}</span>{{env('STRIPE_FEES')}} €</p>
+                                    <p><span>{{ __('payment-message.payment_fees') }}</span>{{config("stripe.stripe_fees")}} €</p>
                                 </div>
                             </div>
 
@@ -71,7 +71,7 @@
                             <div class="row">
                                 <div class="col-xs-12 text-center">
                                     <button class="text-xl scale-90 md:scale-100 mx-auto hover:underline gradient-ugg text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out uppercase" type="submit">{{ __('payment-message.payment-form-validation') }}
-                                        {{env('TOTAL_AMOUNT')}} €</button>
+                                        {{config('stripe.total_amount')}} €</button>
                                 </div>
                             </div>
 

@@ -9,6 +9,7 @@ return [
     "candidat" => "Candidate",
     "Download_PDF" => "Download PDF",
     "Upload_Documents" => "Upload Documents",
+    "Process_payment"=> "Process Payment",
 
     "PDF_Upload" => "PDF",
     "Payment_receipt" => "Payment receipt",

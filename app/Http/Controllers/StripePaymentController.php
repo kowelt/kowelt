@@ -18,10 +18,10 @@ class StripePaymentController extends Controller
      */
     public function stripe()
     {
-        if (Auth::user()->status == "register_for_the_exam") {
-            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']));
+        if (Auth::user()->status != "selected_second_phase") {
+            return redirect()->back();
         }
-        return view('stripe.index', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']);
+        return view('stripe.index', ['navigation' => 'kodreams']);
     }
 
     /**
@@ -31,10 +31,10 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Stripe::setApiKey(config("stripe.stripe_secret"));
 
         $email = Auth::user()->email;
-        $amount = env('TOTAL_AMOUNT');
+        $amount = config("stripe.total_amount");
 
 
         $charge = Stripe\Charge::create ([
@@ -48,14 +48,13 @@ class StripePaymentController extends Controller
 
         // Handle the response from Stripe
         if ($charge->status == 'succeeded') {
-            Log::info($charge);
             User::whereId(auth()->user()->id)->update([
-                'status'=> "register_for_the_exam",
+                'status'=> "registered_for_the_exam",
+                'payment_method' => User::PAYMENT_METHOD_STRIPE
             ]);
 
-            Session::flash('success', 'Payment successful!');
+            return redirect(route('ugg.dashboard', [$request->language, 'home']))->with('success', 'Payment successful!');
 
-            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('success','Payment successful!');
         }
          else {
              return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment failed!');

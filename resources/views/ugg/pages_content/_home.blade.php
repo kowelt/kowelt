@@ -57,15 +57,17 @@
                            class="px-10 py-3 border-2 border-black text-black hover:bg-black hover:text-white rounded text-center font-bold"
                         >{{ __('ugg.Download_PDF') }}</a>
                     @endif
+                @if(Auth::user()->payment_method != App\Models\User::PAYMENT_METHOD_STRIPE)
                     <a href="{{ route('ugg.dashboard', [app()->getLocale(), 'upload-pdf']) }}"
                        class="px-10 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded text-center"
                     >{{ __('ugg.Upload_Documents') }}</a>
                 @endif
+                @endif
 
-                @if(!in_array(Auth::user()->status, ['selected_second_phase']))
-                    <a href="{{ route('ugg.stripe', [app()->getLocale(), 'upload-pdf']) }}"
+                @if(Auth::user()->status == 'selected_second_phase')
+                    <a href="{{ route('ugg.stripe', [app()->getLocale()]) }}"
                        class="px-10 py-3 border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white rounded text-center"
-                    >Passer au paiement</a>
+                    >{{ __('ugg.Process_payment') }}</a>
                 @endif
             </div>
         </div>

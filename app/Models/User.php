@@ -13,6 +13,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    const PAYMENT_METHOD_STRIPE = 'stripe';
+    const PAYMENT_METHOD_TRANSFER = 'transfer';
 
 /*    protected $fillable = [
         'firstname',

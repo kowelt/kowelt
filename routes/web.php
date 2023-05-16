@@ -153,10 +153,9 @@ Route::group([
 //    Route::get('test-date', function () {
 //        dd(date('d.m.Y') >= config('app.kodream_start_date'), date('d.m.Y'), config('app.kodream_start_date'));
 //    });
-    Route::controller(StripePaymentController::class)->middleware(['auth'])->group(function(){
-        Route::get('stripe', 'stripe')->name('ugg.stripe');
-        Route::post('stripe', 'stripePost')->name('stripe.post');
-    });
+
+    Route::get('/stripe', [StripePaymentController::class, 'stripe'])->middleware(['auth-ugg'])->name('ugg.stripe');
+    Route::post('/stripe', [StripePaymentController::class, 'stripePost'])->middleware(['auth-ugg'])->name('stripe.post');
 
     Route::group(['prefix' => 'admin'], function () {
 

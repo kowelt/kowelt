@@ -24,31 +24,42 @@
 
                             <div class=''>
                                 <div class='col-xs-12 form-group required'>
-                                    <label class='control-label'>Name on Card</label> 
+                                    <label class='control-label'>{{ __('payment-message.payment-card-name') }}</label>
                                     <input class='form-control' size='4' type='text' required>
                                 </div>
                             </div>
                             <div class=''>
                                 <div class='col-xs-12 form-group card required'>
-                                    <label class='control-label'>Card Number</label> 
+                                    <label class='control-label'>{{ __('payment-message.payment-card-number') }}</label>
                                     <input autocomplete='off' class='form-control card-number' size='20' type='text' required>
                                 </div>
                             </div>
 
                             <div class='grid grid-cols-3 gap-3'>
                                 <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                    <label class='control-label'>CVC</label> 
+                                    <label class='control-label'>{{ __('payment-message.payment-card-cvv') }}</label>
                                     <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' required>
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                    <label class='control-label'>Expiration Month</label> 
+                                    <label class='control-label'>{{ __('payment-message.payment-card-expiry-month') }}</label>
                                     <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text' required>
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>
-                                    <label class='control-label'>Expiration Year</label> 
+                                    <label class='control-label'>{{ __('payment-message.payment-card-expiry-year') }}</label>
                                     <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text' required>
                                 </div>
                             </div>
+
+                            <div class=''>
+                                <div class='col-xs-12 form-group required'>
+                                    <p><span>{{ __('payment-message.examination_fees') }}</span>{{env('SUBSCRIPTION_AMOUNT')}} €</p>
+                                </div>
+
+                                <div class='col-xs-12 form-group required'>
+                                    <p><span>{{ __('payment-message.payment_fees') }}</span>{{env('STRIPE_FEES')}} €</p>
+                                </div>
+                            </div>
+
 
                             <div class='form-row row'>
                                 <div class='col-md-12 error form-group invisible'>
@@ -59,8 +70,8 @@
 
                             <div class="row">
                                 <div class="col-xs-12 text-center">
-                                    <button class="text-xl scale-90 md:scale-100 mx-auto hover:underline gradient-ugg text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out uppercase" type="submit">Pay Now
-                                        ($100)</button>
+                                    <button class="text-xl scale-90 md:scale-100 mx-auto hover:underline gradient-ugg text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out uppercase" type="submit">{{ __('payment-message.payment-form-validation') }}
+                                        {{env('TOTAL_AMOUNT')}} €</button>
                                 </div>
                             </div>
 

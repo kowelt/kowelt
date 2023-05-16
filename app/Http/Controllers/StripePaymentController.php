@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Session;
 use Stripe;
 
@@ -16,6 +18,9 @@ class StripePaymentController extends Controller
      */
     public function stripe()
     {
+        if (Auth::user()->status == "register_for_the_exam") {
+            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']));
+        }
         return view('stripe.index', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']);
     }
 
@@ -28,27 +33,33 @@ class StripePaymentController extends Controller
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
 
+        $email = Auth::user()->email;
+        $amount = env('TOTAL_AMOUNT');
 
-        Stripe\Charge::create ([
-                "amount" => 100 * 100,
-                "currency" => "usd",
+
+        $charge = Stripe\Charge::create ([
+                "amount" => $amount * 100,
+                "currency" => "eur",
                 "source" => $request->stripeToken,
-                "description" => "Test payment from itsolutionstuff.com."
+                "description" => "Payement des Frais de dossier de l'utilisateur ".$email,
+                "receipt_email" => $email,
+
         ]);
 
-        // $user = User::find(auth()->user()->id);
+        // Handle the response from Stripe
+        if ($charge->status == 'succeeded') {
+            Log::info($charge);
+            User::whereId(auth()->user()->id)->update([
+                'status'=> "register_for_the_exam",
+            ]);
 
-        // $user::update([
-        //   "status"=>"paid"
-        // ]);
+            Session::flash('success', 'Payment successful!');
 
-        User::whereId(auth()->user()->id)->update([
-          'status'=> "register_for_the_exam",
-        ]);
-
-        Session::flash('success', 'Payment successful!');
-
-
-        return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('success','Payment successful!');
+            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('success','Payment successful!');
+        }
+         else {
+             return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment failed!');
+        }
     }
+
 }

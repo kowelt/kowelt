@@ -16,7 +16,7 @@ class StripePaymentController extends Controller
      */
     public function stripe()
     {
-        return view('stripe.index');
+        return view('stripe.index', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']);
     }
 
     /**
@@ -49,6 +49,6 @@ class StripePaymentController extends Controller
         Session::flash('success', 'Payment successful!');
 
 
-        return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form']))->with('success','Payment successful!');
+        return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('success','Payment successful!');
     }
 }

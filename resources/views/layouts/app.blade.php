@@ -102,7 +102,7 @@
 @endif
 
 @if(Route::currentRouteName() == 'ugg.register')
-    <script src="{{ asset('js/recaptcha.js') }}"></script>
+    <script src="{{ asset('js/recaptcha-v1.js') }}"></script>
 @endif
 
 @if(isset($section) && $section == 'kodreams-form')

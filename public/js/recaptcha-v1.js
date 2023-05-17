@@ -1,5 +1,5 @@
 grecaptcha.enterprise.ready(function() {
-    grecaptcha.enterprise.execute('6LcZNzMkAAAAAKVlE2S8WlL2ZGabHe9QTUMMf-1g', {action: '/ugg/register'}).then(function(token) {
+    grecaptcha.enterprise.execute('6LcDgBkmAAAAAF3qwtzfEvpYmY7aitWUC29aUhfq', {action: '/ugg/register'}).then(function(token) {
         document.getElementById('recaptcha_token').value = token;
     });
 });

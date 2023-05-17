@@ -57,10 +57,10 @@ class StripePaymentController extends Controller
 
             }
             else {
-                return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment failed!');
+                return redirect(route('ugg.stripe', app()->getLocale()))->with('error','Payment Failed');
             }
         }catch (\Exception $e){
-            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment Failed :'.$e->getMessage());
+            return redirect(route('ugg.stripe', app()->getLocale()))->with('error','Payment Failed :'.$e->getMessage());
         }
 
     }

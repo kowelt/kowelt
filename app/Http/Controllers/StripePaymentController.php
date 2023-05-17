@@ -36,29 +36,33 @@ class StripePaymentController extends Controller
         $email = Auth::user()->email;
         $amount = config("stripe.total_amount");
 
-
-        $charge = Stripe\Charge::create ([
+        try {
+            $charge = Stripe\Charge::create ([
                 "amount" => $amount * 100,
                 "currency" => "eur",
                 "source" => $request->stripeToken,
                 "description" => "Payement des Frais de dossier de l'utilisateur ".$email,
                 "receipt_email" => $email,
 
-        ]);
-
-        // Handle the response from Stripe
-        if ($charge->status == 'succeeded') {
-            User::whereId(auth()->user()->id)->update([
-                'status'=> "registered_for_the_exam",
-                'payment_method' => User::PAYMENT_METHOD_STRIPE
             ]);
 
-            return redirect(route('ugg.dashboard', [$request->language, 'home']))->with('success', 'Payment successful!');
+            // Handle the response from Stripe
+            if ($charge->status == 'succeeded') {
+                User::whereId(auth()->user()->id)->update([
+                    'status'=> "registered_for_the_exam",
+                    'payment_method' => User::PAYMENT_METHOD_STRIPE
+                ]);
 
+                return redirect(route('ugg.dashboard', [$request->language, 'home']))->with('success', 'Payment successful!');
+
+            }
+            else {
+                return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment failed!');
+            }
+        }catch (\Exception $e){
+            return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment Failed :'.$e->getMessage());
         }
-         else {
-             return redirect(route('ugg.dashboard', [app()->getLocale(), 'kodreams-form','navigation' => 'kodreams']))->with('error','Payment failed!');
-        }
+
     }
 
 }

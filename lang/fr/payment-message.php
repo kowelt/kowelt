@@ -9,5 +9,5 @@ return [
     "payment-card-expiry-year" => "Année d'expiration",
     "payment-card-cvv" => "CVV",
     "payment-form-validation" => "Payer",
-    "cvv_help" => "Le numéro de sécurité est composé de 3 à 5 chiffres et se trouve au crédit.",
+    "cvv_help" => "Le numéro de sécurité est composé de 3 à 5 chiffres et se trouve au dos de votre carte de crédit.",
 ];

@@ -135,7 +135,7 @@ return [
     "Back" => "Back",
     "Submit_Request" => "Submit request",
 
-    "I_confirm" => "I confirm that the information I have provided is correct.",
+    "I_confirm" => "I apply for the KODREAMS competition and certify that the information I have provided in this application process and the information submitted online is complete and correct. I am aware that negligent or intentional misrepresentation is a violation of the rules and will result in disqualification from the procedure or, if discovered after selection, revocation of selection. I agree to the use of my personal data in the application process. Furthermore, I confirm on my honour that the information on periods of study and educational qualifications is correct. (Please note that payment fees are entirely at the issuer's expense.)",
     "I_confirm_2" => "I accept the",
     "I_confirm_2_value" => "general terms and conditions of sale",
     "I_confirm_3" => "I agree to the",

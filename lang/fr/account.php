@@ -135,7 +135,7 @@ return [
     "Back" => "Retour",
     "Submit_Request" => "Soumettre la demande",
 
-    "I_confirm" => "Je confirme que les informations que j'ai fournies sont correctes.",
+    "I_confirm" => "Je pose ma candidature pour le concours KODREAMS et certifie que les informations que j'ai fournies dans le cadre de la présente procédure de candidature et les informations envoyées en ligne sont complètes et exactes. Je suis conscient(e) que toute fausse déclaration faite par négligence ou intentionnellement constitue une infraction et entraîne l'exclusion de la procédure ou, en cas de constatation après la sélection, la révocation de celle-ci. J'autorise l'utilisation de mes données personnelles dans le cadre de la procédure de candidature. En outre, je certifie sur l'honneur que les informations relatives aux périodes d'études et aux diplômes sont exactes. (Veuillez noter que les frais de paiement sont entièrement à la charge de l'émetteur.)",
     "I_confirm_2" => "J'accepte les",
     "I_confirm_2_value" => "conditions générales de vente",
     "I_confirm_3" => "J'accepte la",

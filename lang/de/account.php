@@ -135,7 +135,7 @@ return [
     "Back" => "Zurück",
     "Submit_Request" => "Anfrage einreichen",
 
-    "I_confirm" => "Ich bestätige die Richtigkeit meiner Angaben.",
+    "I_confirm" => "ich bewerbe mich für den KODREAMS-Wettbewerb und versichere, dass die von mir im Rahmen dieses Bewerbungsverfahrens gemachten Angaben und die online übermittelten Informationen vollständig und richtig sind. Mir ist bewusst, dass fahrlässig oder vorsätzlich falsche Angaben ordnungswidrig sind und zum Ausschluss vom Verfahren oder, falls dies erst nach der Auswahl festgestellt wird, zum Widerruf der Auswahl führen. Ich stimme der Verwendung meiner persönlichen Daten im Rahmen des Bewerbungsverfahrens zu. Außerdem bestätige ich ehrenwörtlich, dass die Angaben zu Studienzeiten und Bildungsabschlüssen korrekt sind. (Bitte beachten Sie, dass die Zahlungsgebühren vollständig vom Absender getragen werden.)",
     "I_confirm_2" => "Ich akzeptiere die",
     "I_confirm_2_value" => "Allgemeinen Geschäftsbedingungen",
     "I_confirm_3" => "Ich stimme der",

@@ -62,6 +62,11 @@
         }
     </style>
 
+    @if(Route::currentRouteName() == 'ugg.stripe')
+
+        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    @endif
+
 </head>
 {{--style="font-family: 'Source Sans Pro', sans-serif;"--}}
 <body class="leading-normal tracking-normal text-white relative font-kanit @if(in_array($navigation, ['ugg', 'kodreams'])) gradient-ugg-bg font-notosans @else gradient-primary @endif">

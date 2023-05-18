@@ -9,4 +9,5 @@ return [
     "payment-card-expiry-year" => "Year of expiration",
     "payment-card-cvv" => "CVV",
     "payment-form-validation" => "Pay",
+    "cvv_help" => "The security number has 3 to 5 digits and is located on the back of your credit card.",
 ];

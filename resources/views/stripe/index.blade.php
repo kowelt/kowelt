@@ -48,7 +48,7 @@
 
                             <div class='grid grid-cols-1 md:grid-cols-3 gap-3'>
                                 <div class='col-xs-12 col-md-4 form-group cvc required'>
-                                    <label class='control-label' data-toggle="tooltip" title="Three digit CV code on the back of your card">{{ __('payment-message.payment-card-cvv') }} <i class="fa fa-question-circle d-inline"></i></label>
+                                    <label class='control-label' data-toggle="tooltip" title="{{ __('payment-message.cvv_help') }}">{{ __('payment-message.payment-card-cvv') }} <i class="fa fa-question-circle d-inline"></i></label>
                                     <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text' required>
                                 </div>
                                 <div class='col-xs-12 col-md-4 form-group expiration required'>

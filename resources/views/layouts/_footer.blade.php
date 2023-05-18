@@ -68,6 +68,11 @@
                         <li class="mt-2 inline-block mr-2 md:block md:mr-0">
                             <a target="_blank" href="https://www.linkedin.com/company/kowelt/" class="no-underline hover:underline text-white">Linkedin</a>
                         </li>
+                        <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                        <label>
+                    <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png">
+                </label>
+                        </li>
                     </ul>
                 </div>
             </div>

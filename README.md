@@ -9,11 +9,14 @@
 
 ## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and
+creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in
+many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache)
+  storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
 - Database agnostic [schema migrations](https://laravel.com/docs/migrations).
 - [Robust background job processing](https://laravel.com/docs/queues).
@@ -23,44 +26,196 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all
+modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a
+modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video
+tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging
+into our comprehensive video library.
 
-## Laravel Sponsors
+## Requirement for this project
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<ul>
+<li>PHP (version 8.0 or later)</li>
+<li>Composer</li>
+<li>Node.js (version 14 or later)</li>
+<li>npm (usually installed with Node.js)</li>
+<li>MySQL or any other supported database system</li>
+</ul>
 
-### Premium Partners
+## Setting up your development environment
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Clone the project repository to your local machine:
 
-## Contributing
+```
+git clone https://github.com/kowelt/kowelt.git
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Change into the project directory:
 
-## Code of Conduct
+```
+cd kowelt
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Install PHP dependencies using Composer:
 
-## Security Vulnerabilities
+```
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Create a copy of the .env.example file and rename it to .env:
 
-## License
+```
+cp .env.example .env
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Warning**
+Don't ever commit this file
+
+Generate an application key:
+
+```
+php artisan key:generate
+```
+
+Configure the .env file with your database credentials and other necessary settings.
+
+Run database migrations to create the required tables:
+
+```
+php artisan migrate
+```
+
+(Optional) Seed the database with sample data:
+
+```
+php artisan db:seed
+```
+
+Install JavaScript dependencies using npm:
+
+```
+npm install
+```
+
+Build frontend assets:
+
+```
+npm run dev
+```
+
+## Mailer configuration
+
+create an account in mailtrap for development purposes and configure values for
+<table>
+  <thead>
+    <tr>
+      <th>Field</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MAIL_MAILER</td>
+      <td>smtp</td>
+    </tr>
+    <tr>
+      <td>MAIL_HOST</td>
+      <td>sandbox.smtp.mailtrap.io</td>
+    </tr>
+    <tr>
+      <td>MAIL_PORT</td>
+      <td>your mail port </td>
+    </tr>
+<tr>
+      <td>MAIL_USERNAME</td>
+      <td>your mail user name</td>
+    </tr>
+    <tr>
+      <td>MAIL_PASSWORD</td>
+      <td>your mail password</td>
+    </tr>
+<tr>
+      <td>MAIL_ENCRYPTION</td>
+      <td>tsl</td>
+    </tr>
+  </tbody>
+</table>
+
+Start the server:
+
+```
+php artisan serve
+```
+
+
+Open your browser and access the application at http://localhost:8000 (or the URL shown in the terminal).
+
+
+## Deploy to production ( Hostinger)
+
+
+## Clone Your Git Repository:
+
+In the file manager, locate the root directory of your website.
+Click on the "Terminal" or "Console" option to open a terminal session within the file manager.
+Use the git clone command to clone your Laravel project from the Git repository. For example:
+```bash
+git clone https://github.com/kowelt/kowelt.git
+```
+
+Note the . at the end to clone the repository directly into the current directory.
+
+
+or use Hostinger Interface to clone the project
+
+## Install Composer Dependencies:
+
+In the terminal, navigate to the Laravel project directory that you just cloned.
+Run the following command to install Composer dependencies:
+bash
+````
+composer install --optimize-autoloader --no-de
+````
+
+## Configure Your .env File :
+
+Rename the .env.example file to .env ( only if it is teh first deployment) :
+````
+mv .env.example .env
+````
+
+Open the .env file and update the necessary environment variables, including the database connection details.
+Generate Application Key:
+
+Generate a new application key by running the following command:
+````
+php artisan key:generate --force
+````
+
+
+## Run Database Migrations to update your database:
+
+While still in the Laravel project directory, run the following command to migrate your database tables:
+
+``````
+php artisan migrate --force
+``````
+## Set Up Web Server:
+
+<ul>
+<li>Configure your web server to point to the public directory of your Laravel project.
+</li>
+<li>we use .htaccess file.
+</li>
+</ul>
+
+## Test Your Application:
+
+Visit your website's URL in a web browser to test if your Laravel application is running correctly on Hostinger.
+
+
+## Configure webhooks for automatic deployment when pushing code to your master branch
